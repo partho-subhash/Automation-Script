@@ -1,5 +1,4 @@
 
-
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -35,7 +34,7 @@ public class SavedDraftAssert {
 	
 		capabilities.setCapability("xcodeSigningId", "iPhone Developer");
 		capabilities.setCapability(MobileCapabilityType.UDID, "00008020-000E58583AE9002E");
-		capabilities.setCapability(MobileCapabilityType.APP,"/Users/subhash/Library/Developer/Xcode/DerivedData/MOBIINSPECT-ganjvlicoiggofebwkgkumbbqyoa/Build/Products/Debug-iphoneos/MOBIINSPECT.app");
+		capabilities.setCapability(MobileCapabilityType.APP,"/Users/subhash/Library/Developer/Xcode/DerivedData/MOBIINSPECT-awgqiirvazwfohftmbchrjryjhlw/Build/Products/Debug-iphoneos/MOBIINSPECT.app");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone XR");
 		capabilities.setCapability("updatedWDABundleId", "com.parthotech.mobiinspect.cob");
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -43,11 +42,11 @@ public class SavedDraftAssert {
 		
 		WebElement entervalidUN = driver.findElementsByName("Username").get(1);
 	    entervalidUN.clear();
-	    entervalidUN.sendKeys("psejwani");
+	    entervalidUN.sendKeys("ssalimidi");
 	    
 		WebElement validpassenter = driver.findElementsByName("Password").get(1);
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-		validpassenter.sendKeys("P@rth0tech!!");
+		validpassenter.sendKeys("P@rth0tech22");
 		
 		WebElement LoginButtonClik= (WebElement) driver.findElementByAccessibilityId("Login");
 		LoginButtonClik.click();
@@ -87,7 +86,7 @@ public class SavedDraftAssert {
 			WebElement resultCode = (WebElement) driver.findElementByAccessibilityId("Result code");
 			resultCode.click();
 			
-			WebElement pass = (WebElement) driver.findElementByAccessibilityId("In Progress");
+			WebElement pass = (WebElement) driver.findElementByAccessibilityId("Communication");
 			pass.click();
 			
 			WebElement selectOK = (WebElement) driver.findElementByAccessibilityId("OK");
@@ -134,6 +133,14 @@ public class SavedDraftAssert {
 			WebElement submitPermit2 = (WebElement) driver.findElementByAccessibilityId("OK");
 			submitPermit2.click();
 			
+			
+			IOSElement alertTitlElent1 = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("Your report is added to the pending submission list and will be submitted shortly.")));
+			String aTitle = alertTitlElent1.getText();
+	        Assert.assertEquals(aTitle, "Your report is added to the pending submission list and will be submitted shortly.");
+	        IOSElement oKBTElement = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("OK")));
+	        oKBTElement.click();
 			System.out.println(" Successfully Submit Permits from Saved Draft");
 				
 			
@@ -172,7 +179,7 @@ public class SavedDraftAssert {
 		    WebElement resultCode = (WebElement) driver.findElementByAccessibilityId("Result code");
 			resultCode.click();
 			
-			WebElement pass = (WebElement) driver.findElementByAccessibilityId("In Progress");
+			WebElement pass = (WebElement) driver.findElementByAccessibilityId("Communication");
 			pass.click();
 			
 			WebElement selectOK = (WebElement) driver.findElementByAccessibilityId("OK");
@@ -181,9 +188,16 @@ public class SavedDraftAssert {
 			WebElement permitSubmit = (WebElement) driver.findElementByAccessibilityId("Re-Save Draft");
 			permitSubmit.click();
 			
-			WebElement submitPermit = (WebElement) driver.findElementByAccessibilityId("OK");
-			submitPermit.click();
-			System.out.println("Saved Draft Assertion Working");
+			IOSElement alertTitlElent1 = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("Report saved as Draft")));
+			String aTitle = alertTitlElent1.getText();
+	        Assert.assertEquals(aTitle, "Report saved as Draft");
+	        IOSElement oKBTElement = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("OK")));
+	        oKBTElement.click();
+			
+			
+			System.out.println("Permit Saved into Draft Assertion Working");
 	        
 	        WebElement myPermits = (WebElement) driver.findElementByAccessibilityId("Saved Drafts");
 			myPermits.click();
@@ -211,7 +225,7 @@ public class SavedDraftAssert {
 		    WebElement resltCode = (WebElement) driver.findElementByAccessibilityId("Result code");
 		    resltCode.click();
 			
-			WebElement DropDownSelect = (WebElement) driver.findElementByAccessibilityId("In Progress");
+			WebElement DropDownSelect = (WebElement) driver.findElementByAccessibilityId("Communication");
 			DropDownSelect.click();
 			
 			WebElement select = (WebElement) driver.findElementByAccessibilityId("OK");
@@ -223,7 +237,16 @@ public class SavedDraftAssert {
 			WebElement submtPermit = (WebElement) driver.findElementByAccessibilityId("OK");
 			submtPermit.click();
 			
-
+			IOSElement alertTtlElent1 = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("Your Report is added to the pending submission list and will be submitted shortly.")));
+			String alertTitle = alertTtlElent1.getText();
+	        Assert.assertEquals(aTitle, "Your Report is added to the pending submission list and will be submitted shortly.");
+	        IOSElement ooKBTElement = (IOSElement) new WebDriverWait(driver, 30)
+	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("OK")));
+	        ooKBTElement.click();
+			
+	        System.out.println(" Successfully Submit Permits from Saved Draft And Assert working");
+			
 			
 		}
 

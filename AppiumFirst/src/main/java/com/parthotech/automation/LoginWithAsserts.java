@@ -23,8 +23,8 @@ public class LoginWithAsserts {
 
 	public static void main(String[] args) throws MalformedURLException {
 	  DesiredCapabilities capabilities = new DesiredCapabilities();
-		capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
-	
+	  capabilities.setCapability(MobileCapabilityType.PLATFORM_NAME, "iOS");
+		
 		capabilities.setCapability(MobileCapabilityType.NO_RESET, true);
 	
 		capabilities.setCapability(MobileCapabilityType.AUTOMATION_NAME, "XCUITest");
@@ -32,7 +32,7 @@ public class LoginWithAsserts {
 	
 		capabilities.setCapability("xcodeSigningId", "iPhone Developer");
 		capabilities.setCapability(MobileCapabilityType.UDID, "00008020-000E58583AE9002E");
-		capabilities.setCapability(MobileCapabilityType.APP,"/Users/subhash/Library/Developer/Xcode/DerivedData/MOBIINSPECT-ganjvlicoiggofebwkgkumbbqyoa/Build/Products/Debug-iphoneos/MOBIINSPECT.app");
+		capabilities.setCapability(MobileCapabilityType.APP,"/Users/subhash/Library/Developer/Xcode/DerivedData/MOBIINSPECT-awgqiirvazwfohftmbchrjryjhlw/Build/Products/Debug-iphoneos/MOBIINSPECT.app");
 		capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "iPhone XR");
 		capabilities.setCapability("updatedWDABundleId", "com.parthotech.mobiinspect.cob");
 		URL url = new URL("http://127.0.0.1:4723/wd/hub");
@@ -46,42 +46,43 @@ public class LoginWithAsserts {
 			
 		{
 			
-			
-			// ##############################    Login in Offline          ###########################################
-
-			
-			WebElement webUserNameEnter = driver.findElementsByName("Username").get(1);
-			webUserNameEnter.clear();
-			webUserNameEnter.sendKeys("psejwani");
-			assertEquals(webUserNameEnter.getAttribute("value"), "psejwani");
-			WebElement Passvalid = driver.findElementsByName("Password").get(1);
-			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-			Passvalid.clear();
-			Passvalid.sendKeys("P@rth0tech!!");
-			WebElement loginButtonclk= (WebElement) driver.findElementByAccessibilityId("Login");
-			loginButtonclk.click();
-			IOSElement alertTitleElement1 = (IOSElement) new WebDriverWait(driver, 30)
-	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("You are not connected to the internet. Logging in using local credentials")));
-			String alertTitle = alertTitleElement1.getText();
-	        Assert.assertEquals(alertTitle, "You are not connected to the internet. Logging in using local credentials");
-	        IOSElement okButtonElement = (IOSElement) new WebDriverWait(driver, 30)
-	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("OK")));
-	        okButtonElement.click();
-			WebElement myPermits = (WebElement) driver.findElementByAccessibilityId("menu");
-			myPermits.click();
-			WebElement myPermits1 = (WebElement) driver.findElementByAccessibilityId("Logout");
-			myPermits1.click();
-			System.out.println("Login in Offline");
-			
+//			
+//			// ##############################    Login in Offline          ###########################################
+//
+//			
+//			WebElement webUserNameEnter = driver.findElementsByName("Username").get(1);
+//			webUserNameEnter.clear();
+//			webUserNameEnter.sendKeys("psejwani");
+//			assertEquals(webUserNameEnter.getAttribute("value"), "psejwani");
+//			WebElement Passvalid = driver.findElementsByName("Password").get(1);
+//			driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+//			Passvalid.clear();
+//			Passvalid.sendKeys("P@rth0tech!!");
+//			WebElement loginButtonclk= (WebElement) driver.findElementByAccessibilityId("Login");
+//			loginButtonclk.click();
+//			IOSElement alertTitleElement1 = (IOSElement) new WebDriverWait(driver, 30)
+//	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("You are not connected to the internet. Logging in using local credentials")));
+//			String alertTitle = alertTitleElement1.getText();
+//	        Assert.assertEquals(alertTitle, "You are not connected to the internet. Logging in using local credentials");
+//	        IOSElement okButtonElement = (IOSElement) new WebDriverWait(driver, 30)
+//	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("OK")));
+//	        okButtonElement.click();
+//			WebElement myPermits = (WebElement) driver.findElementByAccessibilityId("menu");
+//			myPermits.click();
+//			WebElement myPermits1 = (WebElement) driver.findElementByAccessibilityId("Logout");
+//			myPermits1.click();
+//			System.out.println("Login in Offline");
+//			
 	
 					
 			
 	// ##############################    Password Not Entered          ###########################################
-
-			
-			WebElement webUserName1 = driver.findElementsByName("Username").get(1);
-			assertEquals(webUserName1.getAttribute("value"), "psejwani");
+//
+//			
+//			WebElement webUserName1 = driver.findElementsByName("Username").get(1);
+			//assertEquals(webUserName1.getAttribute("value"), "psejwani");
 			WebElement logButtonclk= (WebElement) driver.findElementByAccessibilityId("Login");
+			logButtonclk.click();
 			IOSElement alertTitlElent1 = (IOSElement) new WebDriverWait(driver, 30)
 	                .until(ExpectedConditions.visibilityOfElementLocated(MobileBy.AccessibilityId("Please enter your password")));
 			String aTitle = alertTitlElent1.getText();
